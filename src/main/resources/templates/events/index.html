@@ -9,9 +9,11 @@
     <thead></thead>
         <tr>
             <th>Name</th>
+            <th>Description</th>
         </tr>
     <tr th:each="event : ${events}">
-        <td th:text="${event}"></td>
+        <td th:text="${event.key}"></td>
+        <td th:text="${event.value}"></td>
     </tr>
 </table>
 

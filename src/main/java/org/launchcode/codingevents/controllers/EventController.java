@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  * Created by Chris Bay
  */
@@ -51,16 +53,18 @@ public class EventController {
         return "redirect:";
     }
 
-    @GetMapping
+    @GetMapping("edit/{eventId}")
     public String displayEditForm(Model model, @PathVariable int eventId) {
-        model.addAttribute(EventData.getById(eventId));
-        return "events/edit/${eventId}";
+        Object event = EventData.getById(eventId);
+        model.addAttribute(event);
+        return "events/edit";
     }
 
-    @PostMapping
+    @PostMapping("edit")
     public String processEditForm(int eventId, String name, String description) {
-
-        return "events/edit";
+        EventData.getById(eventId).setName(name);
+        EventData.getById(eventId).setDescription(description);
+        return "redirect:";
     }
 
 }

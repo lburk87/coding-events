@@ -8,6 +8,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Type</th>
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
@@ -15,6 +16,7 @@
         </tr>
     </thead>
     <tr th:each="event : ${events}">
+        <td th:text="${event.type}"></td>
         <td th:text="${event.id}"></td>
         <td th:text="${event.name}"></td>
         <td th:text="${event.description}"></td>

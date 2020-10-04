@@ -40,11 +40,6 @@ public class EventController {
             return "events/create";
         }
 
-//        if(!newEvent.isRegistration()) {
-//            model.addAttribute("title", "Create Event");
-//            return "events/create";
-//        }
-
         EventData.add(newEvent);
         return "redirect:";
     }

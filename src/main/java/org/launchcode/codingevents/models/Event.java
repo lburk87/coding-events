@@ -30,13 +30,17 @@ public class Event {
     @NotNull(message="Registration Required")
     private boolean registration;
 
-    public Event(String name, String description, String contactEmail, EventType type, String location) {
+    @Min(value = 1, message = "Value must be 1 or more")
+    private int attendees;
+
+    public Event(String name, String description, String contactEmail, EventType type, String location, int attendees) {
         this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.type = type;
         this.location = location;
+        this.attendees = attendees;
         this.registration = true;
     }
 
@@ -83,6 +87,14 @@ public class Event {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public int getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(int attendees) {
+        this.attendees = attendees;
     }
 
     public int getId() {

@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
 
-/**
- * Created by Chris Bay
- */
 @Entity
 public class AbstractEntity {
 

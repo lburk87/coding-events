@@ -2,7 +2,10 @@ package org.launchcode.codingevents.controllers;
 
 import org.apache.catalina.User;
 import org.launchcode.codingevents.data.UserRepository;
+import org.launchcode.codingevents.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
@@ -31,6 +34,13 @@ public class AuthenticationController {
 
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
+    }
+
+    @GetMapping("/register")
+    public String displayRegistrationForm(Model model) {
+        model.addAttribute(new RegisterFormDTO());
+        model.addAttribute("title", "Register");
+        return "register";
     }
 
 }
